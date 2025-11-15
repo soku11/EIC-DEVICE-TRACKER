@@ -111,7 +111,7 @@ export default function LoginPage() {
         </Button>
 
         <Text>
-          Don&apos;t have an account?{" "}
+          Dont have an account?{" "}
           <ChakraLink
             color="blue.500"
             cursor="pointer"
