@@ -25,7 +25,7 @@ export default function Navbar() {
           <Image 
             src="/logo.png"   
             alt="Logo"
-            boxSize="50px"
+            boxSize="40px"
             objectFit="cover"
             border= "3px solid #F37321"
             borderRadius="50%"
