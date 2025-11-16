@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Flex, Button, Text } from "@chakra-ui/react";
+import { Box, Flex, Button, Text, Image } from "@chakra-ui/react";
 
 export default function Navbar() {
   const [username, setUsername] = useState(null);
@@ -19,10 +19,23 @@ export default function Navbar() {
   return (
     <Box bg="gray.800" color="white" px={6} py={4}>
       <Flex align="center" justify="space-between">
-        <Text fontSize="lg" fontWeight="bold">
-          CAMERA YAHA HAI
-        </Text>
+        
+        {/* LOGO + TITLE */}
+        <Flex align="center" gap={3}>
+          <Image 
+            src="/logo.png"   
+            alt="Logo"
+            boxSize="50px"
+            objectFit="cover"
+            border= "3px solid #F37321"
+            borderRadius="50%"
+          />
+          <Text fontSize="lg" fontWeight="bold">
+            CAMERA YAHA HAI
+          </Text>
+        </Flex>
 
+        {/* USER + LOGOUT */}
         <Flex align="center" gap={4}>
           {username && <Text>Hi, {username}</Text>}
 
@@ -30,6 +43,7 @@ export default function Navbar() {
             Logout
           </Button>
         </Flex>
+
       </Flex>
     </Box>
   );
