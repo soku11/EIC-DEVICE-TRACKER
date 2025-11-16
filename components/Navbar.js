@@ -20,7 +20,7 @@ export default function Navbar() {
     <Box bg="gray.800" color="white" px={6} py={4}>
       <Flex align="center" justify="space-between">
         <Text fontSize="lg" fontWeight="bold">
-          EIC DEVICE TRACKER
+          CAMERA YAHA HAI
         </Text>
 
         <Flex align="center" gap={4}>
