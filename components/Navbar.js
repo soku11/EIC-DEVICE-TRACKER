@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Box, Flex, Button, Text, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text,
+  Button,
+  Avatar,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
 
 export default function Navbar() {
   const [username, setUsername] = useState(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const name = localStorage.getItem("username");
-      setUsername(name);
+      setUsername(localStorage.getItem("username"));
     }
   }, []);
 
@@ -17,31 +26,47 @@ export default function Navbar() {
   }
 
   return (
-    <Box bg="gray.800" color="white" px={6} py={4}>
-      <Flex align="center" justify="space-between">
+    <Box
+      bg="white"
+      position="sticky"
+      top="0"
+      zIndex="1000"
+      boxShadow="md"
+      px={8}
+      py={4}
+    >
+      <Flex justify="space-between" align="center">
         
-        {/* LOGO + TITLE */}
-        <Flex align="center" gap={3}>
-          <Image 
-            src="/logo.png"   
-            alt="Logo"
-            boxSize="40px"
-            objectFit="cover"
-            border= "3px solid #F37321"
-            borderRadius="50%"
-          />
-          <Text fontSize="lg" fontWeight="bold">
-            CAMERA YAHA HAI
+        {/* SIMPLE TITLE */}
+        <Flex align="center" gap={1}>
+          <Text fontSize="2xl" fontWeight="bold" color="orange.500">
+            Cam-
+          </Text>
+          <Text fontSize="2xl" fontWeight="bold" color="orange.400">
+            छो
           </Text>
         </Flex>
 
-        {/* USER + LOGOUT */}
-        <Flex align="center" gap={4}>
-          {username && <Text>Hi, {username}</Text>}
+        {/* USER MENU */}
+        <Flex align="center">
+          {username ? (
+            <Menu>
+              <MenuButton cursor="pointer">
+                <Flex align="center" gap={2}>
+                  <Avatar size="sm" name={username} bg="orange.400" />
+                  <Text fontWeight="semibold">{username}</Text>
+                </Flex>
+              </MenuButton>
 
-          <Button colorScheme="red" onClick={handleLogout}>
-            Logout
-          </Button>
+              <MenuList>
+                <MenuItem onClick={handleLogout} color="red.500">
+                  Logout
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          ) : (
+            <Button colorScheme="orange">Login</Button>
+          )}
         </Flex>
 
       </Flex>
